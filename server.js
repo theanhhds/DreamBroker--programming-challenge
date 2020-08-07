@@ -10,24 +10,24 @@ app.use(cors());	//avoid CORS policy
 app.use(bodyParser.json());	// parse application/json
 app.use(bodyParser.urlencoded({ extended: true }));	// parse application/x-www-form-urlencoded
 
-function countWord(str){
+function countWord(str){	//Count number of words in string
 	let count = 0, i=0;
-	str = str+' ';
+	str = str+' ';			//This approach needs to add 1 more space character at the end
 	for (i=1; i< str.length; i++)
 		//If current position is a space and previouse is not a space
-		if (str.charAt(i) == ' ' && str.charAt(i-1) != ' ')	
+		if (str.charAt(i) == ' ' && str.charAt(i-1) != ' ')
 			count++;
 	return count;
 }
 
 function countChars(str){
 	let count = new Array(), i = 0;
-	for (i==0; i<= 25; i++){
+	for (i==0; i<= 25; i++){		//Initialize count array, which has 26 entries = 0
 		count[i]=0;
 	}
 	
 	for (i=0; i< str.length; i++){
-		let a = str.charCodeAt(i) - 97;
+		let a = str.charCodeAt(i) - 97;	//a=0, b=1, c=2, etc. to z=25
 		if (a>=0 && a<=25)
 			count[a]++;
 	}
